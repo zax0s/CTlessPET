@@ -209,7 +209,7 @@ class CTlessPET():
         subj_conform = rsl_conform(self.CT_subj)
 
         # Cropping image to 512x512
-        xy_original_ct = 512
+        xy_original_ct = 1E6
         if xy_original_ct < subj_conform.CT.shape[1]:
             diff_x = subj_conform.CT.shape[1]-xy_original_ct
             left_x = diff_x//2
@@ -220,6 +220,7 @@ class CTlessPET():
             crop = tio.transforms.Crop((left_x,right_x,left_y,right_y,0,0))
             subj_conform = crop(subj_conform)
             self.CT_conform_crop = subj_conform.CT
+        self.CT_conform_crop = subj_conform.CT
         
         # Resample cropped CT conform to 2mm
         rsl = tio.transforms.Resample(2)
@@ -313,7 +314,7 @@ class CTlessPET():
         CT_bed = tio.ScalarImage(self.CT_path)
         (sCT_np, CT_bed_rsl_np, mask_rsl_np) = (subj_final.sCT.data.numpy()[0], CT_bed.data.numpy()[0], self.bed_mask.data.numpy()[0])
 
-        sCT_np[mask_rsl_np > 0] = CT_bed_rsl_np[mask_rsl_np > 0]
+        #sCT_np[mask_rsl_np > 0] = CT_bed_rsl_np[mask_rsl_np > 0]
         tc_sCT = torch.unsqueeze(torch.from_numpy(sCT_np), 0)
         self.subj_final_wBed = tio.ScalarImage(tensor = tc_sCT, affine = subj_final.sCT.affine)
     
