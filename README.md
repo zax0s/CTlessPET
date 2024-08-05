@@ -31,6 +31,7 @@ You can change the batch size using `--batch_size` as well as overwrite the dose
 
 ### Installation with Cuda12
 Install ONNX Runtime GPU (CUDA 12.x): pip install onnxruntime-gpu --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/
+
 https://onnxruntime.ai/docs/install/
 
 ## Citation
