@@ -29,6 +29,10 @@ The type is automatically selected when running the model with dicom data. You c
 ### Optional arguments
 You can change the batch size using `--batch_size` as well as overwrite the dose (`--dose`) and weight (`--weight`)  given to the patient. This is otherwise automatically read from the dicom file (if supplied).
 
+### Installation with Cuda12
+Install ONNX Runtime GPU (CUDA 12.x): pip install onnxruntime-gpu --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/
+https://onnxruntime.ai/docs/install/
+
 ## Citation
 
 ![image](https://github.com/DEPICT-RH/CTlessPET/assets/108402980/1de108d4-0d1b-40cb-b88c-ed5d18e5b0c9)
